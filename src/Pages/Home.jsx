@@ -154,45 +154,6 @@ function Home() {
           </div>
         </section>
 
-        {/* Features Section */}
-        <section className={classes.featuresSection}>
-          {featuredData.map((feature, index) => (
-            <div className={classes.featureCard} key={index}>
-              <div className={classes.featureIcon}>
-                <FontAwesomeIcon icon={feature.icon} />
-              </div>
-              <h3>{feature.title}</h3>
-              <p>{feature.description}</p>
-            </div>
-          ))}
-        </section>
-
-        {/* Categories Section */}
-        <section className={classes.categoriesSection}>
-          {/* heading */}
-          <h2 className={classes.sectionTitle}>Explore Our Menu</h2>
-          <p className={classes.sectionSubtitle}>
-            Choose from our wide variety of delicious categories
-          </p>
-
-          {/* cards */}
-          <div className={classes.categoriesGrid}>
-            {categoriesData.map((category, index) => (
-              <div
-                className={classes.categoryCard}
-                key={index}
-                onClick={handleClick}
-              >
-                <div className={classes.categoryIcon}>
-                  <FontAwesomeIcon icon={category.icon} />
-                </div>
-                <h3>{category.title}</h3>
-                <p>{category.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* Featured Dishes Section */}
         <section className={classes.featuredSection}>
           {/* headings */}
@@ -234,6 +195,45 @@ function Home() {
               </div>
             ))}
           </div>
+        </section>
+
+        {/* Categories Section */}
+        <section className={classes.categoriesSection}>
+          {/* heading */}
+          <h2 className={classes.sectionTitle}>Explore Our Menu</h2>
+          <p className={classes.sectionSubtitle}>
+            Choose from our wide variety of delicious categories
+          </p>
+
+          {/* cards */}
+          <div className={classes.categoriesGrid}>
+            {categoriesData.map((category, index) => (
+              <div
+                className={classes.categoryCard}
+                key={index}
+                onClick={handleClick}
+              >
+                <div className={classes.categoryIcon}>
+                  <FontAwesomeIcon icon={category.icon} />
+                </div>
+                <h3>{category.title}</h3>
+                <p>{category.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section className={classes.featuresSection}>
+          {featuredData.map((feature, index) => (
+            <div className={classes.featureCard} key={index}>
+              <div className={classes.featureIcon}>
+                <FontAwesomeIcon icon={feature.icon} />
+              </div>
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+            </div>
+          ))}
         </section>
 
         {/* Call to Action Section */}

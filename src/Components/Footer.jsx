@@ -1,14 +1,22 @@
 // styles
 import classes from "../Module/Footer.module.css";
+const basic = {
+  textDecoration: "none",
+  color: "inherit",
+};
+
+// router
+import { NavLink } from "react-router";
 
 // main
 function Footer() {
+  // main
   return (
     <footer className={classes.footer}>
       <div className={classes.footerContent}>
         {/* names */}
         <div className={classes.footerSection}>
-          <h3>Foodie</h3>
+          <h3>FoodieHub</h3>
           <p>Delivering happiness with every meal</p>
         </div>
 
@@ -16,9 +24,15 @@ function Footer() {
         <div className={classes.footerSection}>
           <h4>Quick Links</h4>
           <ul>
-            <li>About Us</li>
-            <li>Menu</li>
-            <li>Contact</li>
+            <NavLink to="/about" style={basic}>
+              <li>About Us</li>
+            </NavLink>
+            <NavLink to="/shop" style={basic}>
+              <li>Menu</li>
+            </NavLink>
+            <NavLink to="/contact" style={basic}>
+              <li>Contact</li>
+            </NavLink>
             <li>Careers</li>
           </ul>
         </div>
@@ -49,7 +63,13 @@ function Footer() {
           <a
             href="https://mahiin.netlify.app"
             target="_blank"
-            style={{ color: "pink", letterSpacing: "2px" }}
+            style={{
+              color: "pink",
+              letterSpacing: "2px",
+              background: "rgb(255,255,255,0.05)",
+              borderRadius: "10px",
+              padding: "6px 10px",
+            }}
           >
             Mahin
           </a>

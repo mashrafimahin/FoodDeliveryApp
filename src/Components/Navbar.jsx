@@ -31,7 +31,7 @@ function Navbar() {
         $color="#e74124"
         $size="2.5rem"
       >
-        Foodie
+        FoodieHub
       </TitleText>
 
       {/* Navigation Links */}
@@ -47,17 +47,21 @@ function Navbar() {
           <NavLink to="/about" style={basic}>
             <li>About</li>
           </NavLink>
-          <li>Blog</li>
+          <NavLink to="/blogs" style={basic}>
+            <li>Blog</li>
+          </NavLink>
           <NavLink to="/contact" style={basic}>
             <li>Contact</li>
           </NavLink>
         </ul>
 
         {/* button */}
-        <button className={classes.loginSignupButton}>
-          <FontAwesomeIcon icon={faUser} />
-          Login
-        </button>
+        <NavLink to="/login" style={basic}>
+          <button className={classes.loginSignupButton}>
+            <FontAwesomeIcon icon={faUser} />
+            Login
+          </button>
+        </NavLink>
       </div>
     </Nav>
   );
