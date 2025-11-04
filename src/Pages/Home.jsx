@@ -1,0 +1,262 @@
+// hooks
+import { useContext, useEffect } from "react";
+
+// styles
+import classes from "../Module/Home.module.css";
+
+// components
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
+
+// context
+import DataContext from "../Contexts/DataContext";
+
+// router
+import { useNavigate } from "react-router";
+
+// icons
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUtensils,
+  faPizzaSlice,
+  faBurger,
+  faIceCream,
+  faCoffee,
+  faCakeCandles,
+  faStar,
+  faTruck,
+  faClock,
+  faShieldHalved,
+} from "@fortawesome/free-solid-svg-icons";
+
+// images
+import HeroImage from "../Assets/image/hero.jpg";
+import pizza from "../Assets/image/pizza.jpg";
+import burger from "../Assets/image/burg.jpg";
+import cake from "../Assets/image/cake.jpg";
+
+// data
+const featuredData = [
+  {
+    icon: faTruck,
+    title: "Fast Delivery",
+    description: "Get your food delivered within 30 minutes",
+  },
+  {
+    icon: faShieldHalved,
+    title: "Quality Assured",
+    description: "Fresh ingredients and hygiene guaranteed",
+  },
+  {
+    icon: faClock,
+    title: "24/7 Service",
+    description: "Order anytime, we're always available",
+  },
+];
+
+// category
+const categoriesData = [
+  {
+    icon: faPizzaSlice,
+    title: "Pizza",
+    description: "Authentic Italian pizzas",
+  },
+  { icon: faBurger, title: "Burgers", description: "Juicy gourmet burgers" },
+  {
+    icon: faIceCream,
+    title: "Desserts",
+    description: "Sweet treats & ice cream",
+  },
+  { icon: faCoffee, title: "Beverages", description: "Coffee, tea & drinks" },
+  { icon: faCakeCandles, title: "Bakery", description: "Fresh baked goods" },
+  { icon: faUtensils, title: "Special", description: "Chef's recommendations" },
+];
+
+// trending product
+const trendingData = [
+  {
+    name: "Margherita Pizza",
+    image: pizza,
+    rating: 4.9,
+    price: 12.99,
+    description: "Classic Italian pizza with fresh mozzarella and basil",
+  },
+  {
+    name: "Classic Burger",
+    image: burger,
+    rating: 4.8,
+    price: 9.99,
+    description: "Juicy beef patty with cheese, lettuce and special sauce",
+  },
+  {
+    name: "Chocolate Cake",
+    image: cake,
+    rating: 5.0,
+    price: 7.99,
+    description: "Rich chocolate cake with creamy frosting and sprinkles",
+  },
+];
+
+// main
+function Home() {
+  // context
+  const { setSelected } = useContext(DataContext);
+
+  // mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  // navigation
+  const navigate = useNavigate();
+
+  const handleClick = (e) => {
+    const categoryTitle = e.currentTarget.querySelector("h3").innerText;
+    setSelected(categoryTitle);
+    navigate("/shop");
+  };
+
+  return (
+    <>
+      <div className={classes.homePage}>
+        <Navbar />
+        {/* Hero Section */}
+        <section className={classes.heroSection}>
+          {/* heading texts */}
+          <div className={classes.heroContent}>
+            <h1 className={classes.heroTitle}>
+              Delicious Food <span>Delivered</span> to Your Door
+            </h1>
+
+            {/* sub heading */}
+            <p className={classes.heroSubtitle}>
+              Fresh ingredients, authentic flavors, and culinary excellence.
+              Experience the best food delivery service in town.
+            </p>
+
+            {/* buttons */}
+            <div className={classes.heroButtons}>
+              <button className={classes.primaryButton}>Order Now</button>
+              <button
+                className={classes.secondaryButton}
+                onClick={() => navigate("/shop")}
+              >
+                View Menu
+              </button>
+            </div>
+          </div>
+
+          {/* icon style image */}
+          <div className={classes.heroImage}>
+            <div className={classes.heroImagePlaceholder}>
+              <img src={HeroImage} />
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section className={classes.featuresSection}>
+          {featuredData.map((feature, index) => (
+            <div className={classes.featureCard} key={index}>
+              <div className={classes.featureIcon}>
+                <FontAwesomeIcon icon={feature.icon} />
+              </div>
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+            </div>
+          ))}
+        </section>
+
+        {/* Categories Section */}
+        <section className={classes.categoriesSection}>
+          {/* heading */}
+          <h2 className={classes.sectionTitle}>Explore Our Menu</h2>
+          <p className={classes.sectionSubtitle}>
+            Choose from our wide variety of delicious categories
+          </p>
+
+          {/* cards */}
+          <div className={classes.categoriesGrid}>
+            {categoriesData.map((category, index) => (
+              <div
+                className={classes.categoryCard}
+                key={index}
+                onClick={handleClick}
+              >
+                <div className={classes.categoryIcon}>
+                  <FontAwesomeIcon icon={category.icon} />
+                </div>
+                <h3>{category.title}</h3>
+                <p>{category.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Featured Dishes Section */}
+        <section className={classes.featuredSection}>
+          {/* headings */}
+          <h2 className={classes.sectionTitle}>Popular Dishes</h2>
+          <p className={classes.sectionSubtitle}>
+            Our customers' favorite meals
+          </p>
+
+          {/* cards */}
+          <div className={classes.dishesGrid}>
+            {trendingData.map((dish, index) => (
+              <div className={classes.dishCard} key={index}>
+                {/* head */}
+                <div className={classes.dishImagePlaceholder}>
+                  <img src={dish.image} />
+                </div>
+
+                {/* body */}
+                <div className={classes.dishInfo}>
+                  <h3>{dish.name}</h3>
+
+                  {/* rating star */}
+                  <div className={classes.rating}>
+                    {Array.from({ length: Math.floor(dish.rating) }).map(
+                      (_, i) => (
+                        <FontAwesomeIcon icon={faStar} key={i} />
+                      )
+                    )}
+                    <span>({dish.rating})</span>
+                  </div>
+
+                  {/* description */}
+                  <p>{dish.description}</p>
+                  <div className={classes.dishFooter}>
+                    <span className={classes.price}>{dish.price}</span>
+                    <button className={classes.addButton}>Add to Cart</button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Call to Action Section */}
+        <section className={classes.ctaSection}>
+          <div className={classes.ctaContent}>
+            <h2>Ready to Order?</h2>
+            <p>Download our app and get exclusive deals and faster checkout</p>
+
+            {/* action buttons */}
+            <div className={classes.ctaButtons}>
+              <button className={classes.ctaPrimaryButton}>Download App</button>
+              <button className={classes.ctaSecondaryButton}>
+                Order Online
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* footer  */}
+        <Footer />
+      </div>
+    </>
+  );
+}
+
+export default Home;

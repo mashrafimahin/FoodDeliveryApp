@@ -1,0 +1,559 @@
+/* Story Section */
+.storySection {
+  padding: 80px 100px;
+  padding-top: 160px;
+  background: white;
+}
+
+.storyContent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 3rem;
+  color: #2d2d2d;
+  margin-bottom: 15px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+.sectionSubtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 50px;
+  font-family: "Poppins", sans-serif;
+}
+
+.storyGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.storyText h3 {
+  font-size: 2rem;
+  color: #2d2d2d;
+  margin-bottom: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+.storyText p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-family: "Roboto", sans-serif;
+}
+
+.storyImage {
+  width: 100%;
+  height: 400px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.storyImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s ease;
+}
+
+.storyImage:hover img {
+  transform: scale(1.05);
+}
+
+/* Stats Section */
+.statsSection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding: 80px 100px;
+  background: #f8f8f8;
+}
+
+.statCard {
+  text-align: center;
+  padding: 40px 30px;
+  border-radius: 15px;
+  background: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.statCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.statIcon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #e74124 0%, #ff6b4a 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 35px;
+  color: white;
+}
+
+.statNumber {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #e74124;
+  margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+.statCard h3 {
+  font-size: 1.5rem;
+  color: #2d2d2d;
+  margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+.statCard p {
+  font-size: 1rem;
+  color: #666;
+  font-family: "Poppins", sans-serif;
+}
+
+/* CEO Section */
+.ceoSection {
+  padding: 80px 100px;
+  background: white;
+}
+
+.ceoContent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ceoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.ceoImage {
+  position: relative;
+}
+
+.ceoImage img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.ceoContact {
+  position: absolute;
+  bottom: -20px;
+  left: 20px;
+  right: 20px;
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  color: #666;
+  font-family: "Poppins", sans-serif;
+}
+
+.contactItem:last-child {
+  margin-bottom: 0;
+}
+
+.contactItem svg {
+  color: #e74124;
+  min-width: 16px;
+}
+
+.ceoInfo h3 {
+  font-size: 1.9rem;
+  color: #2d2d2d;
+  margin-bottom: 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}
+
+.ceoTitle {
+  font-size: 1.2rem;
+  color: #e74124;
+  margin-bottom: 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+}
+
+.ceoBio {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  font-family: "Roboto", sans-serif;
+}
+
+.experienceSection h4 {
+  font-size: 1.5rem;
+  color: #2d2d2d;
+  margin-bottom: 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+}
+
+.experienceList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.experienceItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.experienceItem:hover {
+  background: #f0f0f0;
+  transform: translateX(5px);
+}
+
+.expIcon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #e74124 0%, #ff6b4a 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.expDetails h5 {
+  font-size: 1.1rem;
+  color: #2d2d2d;
+  margin-bottom: 5px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+}
+
+.expDetails p {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 5px;
+  font-family: "Roboto", sans-serif;
+}
+
+.expPeriod {
+  font-size: 0.85rem;
+  color: #e74124;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Testimonials Section */
+.testimonialsSection {
+  padding: 80px 100px;
+  background: #f8f8f8;
+}
+
+.testimonialsContent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.testimonialCard {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.testimonialCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.testimonialHeader {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.customerImage {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.customerImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.customerInfo h4 {
+  font-size: 1.2rem;
+  color: #2d2d2d;
+  margin-bottom: 5px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+.customerRole {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+.rating {
+  display: flex;
+  gap: 2px;
+  color: #ffc107;
+  font-size: 0.9rem;
+}
+
+.testimonialContent {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.quoteIcon {
+  position: absolute;
+  font-size: 2rem;
+  color: #e74124;
+  opacity: 0.2;
+}
+
+.quoteIcon:first-child {
+  top: -10px;
+  left: -10px;
+}
+
+.quoteIcon:last-child {
+  bottom: -10px;
+  right: -10px;
+}
+
+.testimonialContent p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.7;
+  font-family: "Roboto", sans-serif;
+  padding: 0 20px;
+  font-style: italic;
+}
+
+.testimonialDate {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #999;
+  font-family: "Poppins", sans-serif;
+}
+
+.testimonialDate svg {
+  color: #e74124;
+}
+
+/* Mission Section */
+.missionSection {
+  padding: 80px 100px;
+  background: white;
+}
+
+.missionContent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.missionGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.missionCard {
+  text-align: center;
+  padding: 40px 30px;
+  border-radius: 15px;
+  background: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+.missionCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.missionIcon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #e74124 0%, #ff6b4a 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 35px;
+  color: white;
+}
+
+.missionCard h3 {
+  font-size: 1.5rem;
+  color: #2d2d2d;
+  margin-bottom: 15px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+.missionCard p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .heroSection {
+    padding: 60px 50px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .heroTitle {
+    font-size: 3rem;
+  }
+
+  .heroImagePlaceholder {
+    width: 350px;
+    height: 350px;
+    font-size: 120px;
+  }
+
+  .storySection,
+  .ceoSection,
+  .testimonialsSection,
+  .missionSection {
+    padding: 60px 50px;
+  }
+
+  .storyGrid,
+  .ceoGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .statsSection {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 60px 50px;
+  }
+
+  .testimonialsGrid,
+  .missionGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .ceoContact {
+    position: static;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutPage {
+    padding-top: 80px;
+  }
+
+  .heroSection {
+    padding: 40px 30px;
+    min-height: auto;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .heroImagePlaceholder {
+    width: 280px;
+    height: 280px;
+    font-size: 90px;
+  }
+
+  .storySection,
+  .ceoSection,
+  .testimonialsSection,
+  .missionSection {
+    padding: 40px 30px;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .statsSection {
+    grid-template-columns: 1fr;
+    padding: 40px 30px;
+  }
+
+  .testimonialsGrid,
+  .missionGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ceoInfo h3 {
+    font-size: 2rem;
+  }
+
+  .experienceItem {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .expIcon {
+    align-self: center;
+  }
+}
