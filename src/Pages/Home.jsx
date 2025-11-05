@@ -10,6 +10,7 @@ import Footer from "../Components/Footer";
 
 // context
 import DataContext from "../Contexts/DataContext";
+import { AuthContext } from "../Contexts/AuthContext";
 
 // router
 import { useNavigate } from "react-router";
@@ -101,6 +102,7 @@ const trendingData = [
 function Home() {
   // context
   const { setSelected } = useContext(DataContext);
+  const { userState } = useContext(AuthContext);
 
   // mount
   useEffect(() => {
@@ -114,6 +116,10 @@ function Home() {
     const categoryTitle = e.currentTarget.querySelector("h3").innerText;
     setSelected(categoryTitle);
     navigate("/shop");
+  };
+
+  const handleOrder = () => {
+    navigate("/order");
   };
 
   return (
@@ -136,7 +142,16 @@ function Home() {
 
             {/* buttons */}
             <div className={classes.heroButtons}>
-              <button className={classes.primaryButton}>Order Now</button>
+              <button
+                className={classes.primaryButton}
+                onClick={
+                  userState
+                    ? handleOrder
+                    : () => alert("You must login to order something...!")
+                }
+              >
+                Order Now
+              </button>
               <button
                 className={classes.secondaryButton}
                 onClick={() => navigate("/shop")}

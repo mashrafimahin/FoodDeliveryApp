@@ -1,6 +1,9 @@
 // hooks
 import { useState, useEffect, useContext } from "react";
 
+// router
+import { useNavigate } from "react-router";
+
 // styles
 import classes from "../Module/Shopping.module.css";
 
@@ -10,6 +13,7 @@ import Footer from "../Components/Footer";
 
 // context
 import DataContext from "../Contexts/DataContext";
+import { AuthContext } from "../Contexts/AuthContext";
 
 // icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -207,8 +211,10 @@ const categories = [
 
 // main
 function Shopping() {
+  const navigate = useNavigate();
   // category from context
   const { selected } = useContext(DataContext);
+  const { userState } = useContext(AuthContext);
 
   // fetch items
   const fetchItems = JSON.parse(localStorage.getItem("shoppingCart")) || [];
@@ -238,6 +244,11 @@ function Shopping() {
       .includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
+
+  // handle order button
+  const handleOrder = () => {
+    navigate("/order");
+  };
 
   // Add to cart
   const addToCart = (product) => {
@@ -453,7 +464,14 @@ function Shopping() {
                     <strong>${(calculateTotal() + 3.99).toFixed(2)}</strong>
                   </div>
                   {/* button */}
-                  <button className={classes.checkoutButton}>
+                  <button
+                    className={classes.checkoutButton}
+                    onClick={
+                      userState
+                        ? handleOrder
+                        : () => alert("You must login to buy products...!")
+                    }
+                  >
                     Proceed to Checkout
                   </button>
                 </div>

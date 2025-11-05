@@ -1,0 +1,310 @@
+.orderPage {
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  padding: 20px 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.pageTitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.sectionTitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.orderSection,
+.totalSection,
+.paymentSection,
+.addressSection {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.productList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.productItem {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.productImage {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.productImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.productDetails {
+  flex: 1;
+}
+
+.productName {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #333;
+  margin: 0 0 8px 0;
+}
+
+.productDescription {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  color: #666;
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+}
+
+.productPrice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quantity {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  color: #666;
+}
+
+.price {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #ff6347;
+}
+
+.totalBreakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1rem;
+  color: #333;
+  padding: 8px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.totalRow:last-child {
+  border-bottom: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ff6347;
+  padding-top: 15px;
+}
+
+.paymentOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.paymentOption {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.paymentOption:hover {
+  border-color: #ff6347;
+}
+
+.paymentOption input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #ff6347;
+}
+
+.paymentLabel {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.actionSection {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.placeOrderButton {
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.placeOrderButton:hover:not(:disabled) {
+  background-color: #e5533d;
+}
+
+.placeOrderButton:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.placeOrderButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.emptyOrder {
+  text-align: center;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 60px 30px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.emptyOrder p {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  color: #666;
+  margin: 0;
+}
+
+.addressForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formLabel {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.formInput,
+.formTextarea {
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  color: #333;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+  outline: none;
+  border-color: #ff6347;
+}
+
+.formTextarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .pageTitle {
+    font-size: 2rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .orderSection,
+  .totalSection,
+  .paymentSection,
+  .addressSection {
+    padding: 20px;
+  }
+
+  .productItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .productImage {
+    width: 100%;
+    height: 150px;
+  }
+
+  .productPrice {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .placeOrderButton {
+    width: 100%;
+    padding: 18px;
+  }
+}

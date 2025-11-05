@@ -14,6 +14,7 @@ import About from "./Pages/About";
 import Blog from "./Pages/Blog";
 import Contact from "./Pages/Contact";
 import Dashboard from "./Pages/Dashboard";
+import Order from "./Pages/Order";
 import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
 
@@ -77,6 +78,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/blogs" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/order" element={<Order />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
           </Routes>
