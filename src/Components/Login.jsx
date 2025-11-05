@@ -1,14 +1,27 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+// hooks
+import { useState, useContext } from "react";
+
+// router
+import { Link, useNavigate } from "react-router";
+
+// style
 import styles from "../Module/Login.module.css";
 
+// context
+import { AuthContext } from "../Contexts/AuthContext";
+
 const Login = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
   });
 
+  // context
+  const { signIn } = useContext(AuthContext);
+
+  // handle change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -17,8 +30,11 @@ const Login = () => {
     }));
   };
 
+  // handle submit
   const handleSubmit = (e) => {
     e.preventDefault();
+    signIn(formData.email, formData.password);
+    navigate("/");
   };
 
   return (
@@ -79,7 +95,11 @@ const Login = () => {
             />
           </div>
 
-          <button type="submit" className={styles.loginButton}>
+          <button
+            type="submit"
+            className={styles.loginButton}
+            onClick={handleSubmit}
+          >
             Sign In
           </button>
         </form>

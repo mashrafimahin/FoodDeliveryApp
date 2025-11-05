@@ -1,11 +1,6 @@
 /* SignUp Form Styles */
 .signupContainer {
   min-height: 100dvh;
-  background: linear-gradient(135deg, #fff5f0ea 0%, #ffe8e02c 100%),
-    url(../Assets/image/bg.jpg);
-  background-size: contain;
-  background-position-y: -200px;
-  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,8 +13,6 @@
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(231, 65, 36, 0.15);
   padding: 25px;
-  width: 100%;
-  max-width: 420px;
   position: relative;
 }
 

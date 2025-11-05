@@ -14,6 +14,7 @@ import { NavLink } from "react-router";
 
 // context
 import ScrolledContext from "../Contexts/DataContext";
+import { AuthContext } from "../Contexts/AuthContext";
 
 // icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,6 +23,7 @@ import { faUser } from "@fortawesome/free-regular-svg-icons";
 // main
 function Navbar() {
   const { scroll } = useContext(ScrolledContext);
+  const { userState } = useContext(AuthContext);
 
   return (
     <Nav $sc={scroll}>
@@ -56,12 +58,21 @@ function Navbar() {
         </ul>
 
         {/* button */}
-        <NavLink to="/login" style={basic}>
-          <button className={classes.loginSignupButton}>
-            <FontAwesomeIcon icon={faUser} />
-            Login
-          </button>
-        </NavLink>
+        {userState ? (
+          <NavLink to="/dashboard" style={basic}>
+            <button className={classes.profileButton}>
+              <FontAwesomeIcon icon={faUser} />
+              Profile
+            </button>
+          </NavLink>
+        ) : (
+          <NavLink to="/login" style={basic}>
+            <button className={classes.loginSignupButton}>
+              <FontAwesomeIcon icon={faUser} />
+              Login
+            </button>
+          </NavLink>
+        )}
       </div>
     </Nav>
   );

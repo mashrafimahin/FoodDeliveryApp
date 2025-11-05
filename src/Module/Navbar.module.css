@@ -42,7 +42,8 @@
   width: 100%;
 }
 
-.loginSignupButton {
+.loginSignupButton,
+.profileButton {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -56,6 +57,11 @@
   font-family: "Poppins", sans-serif;
   cursor: pointer;
   transition: background-color 300ms ease, scale 50ms ease;
+}
+
+.profileButton {
+  background-color: #fff;
+  color: #222;
 }
 
 .loginSignupButton:hover {

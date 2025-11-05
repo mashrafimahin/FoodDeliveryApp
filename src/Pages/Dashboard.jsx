@@ -1,29 +1,61 @@
-import { useState, useEffect } from "react";
+// hooks
+import { useState, useEffect, useContext } from "react";
+
+// firebase
+import app from "../Server/Firebase";
+import { getAuth } from "firebase/auth";
+
+// router
 import { useNavigate } from "react-router-dom";
+
+// style
 import styles from "../Module/Dashboard.module.css";
+
+// context
+import { AuthContext } from "../Contexts/AuthContext";
+import { FetchData, UpdateData, DeleteUser } from "../Server/DataBase";
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
-  const [userData, setUserData] = useState({
-    fullName: "John Doe",
-    email: "john.doe@example.com",
-    phone: "+1 (555) 123-4567",
-    dateOfBirth: "1990-01-01",
-  });
-
+  const [userData, setUserData] = useState({});
   const [editData, setEditData] = useState({ ...userData });
+  const [userID, setUserID] = useState(null);
 
-  // Load user data from localStorage or API
+  // context
+  const { signOut } = useContext(AuthContext);
+
+  // Load user data from API
   useEffect(() => {
-    const savedUser = localStorage.getItem("userData");
-    if (savedUser) {
-      const parsedUser = JSON.parse(savedUser);
-      setUserData(parsedUser);
-      setEditData(parsedUser);
-    }
-  }, []);
+    let isMounted = true;
+    const auth = getAuth(app);
 
+    const unsubscribe = auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        const actID = user.uid;
+        setUserID(actID);
+
+        try {
+          const data = await FetchData(actID);
+          if (isMounted) {
+            setUserData(data);
+            setEditData(data);
+          }
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      } else {
+        navigate("/");
+      }
+    });
+
+    return () => {
+      isMounted = false;
+      unsubscribe(); // Cleanup listener on unmount
+    };
+  }, [navigate]);
+
+  // edit trigger handle
   const handleEditToggle = () => {
     if (isEditing) {
       // Cancel editing - reset to original data
@@ -32,6 +64,7 @@ const Dashboard = () => {
     setIsEditing(!isEditing);
   };
 
+  // hanlde input change
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setEditData((prev) => ({
@@ -40,31 +73,33 @@ const Dashboard = () => {
     }));
   };
 
+  // handle save
   const handleSave = () => {
     setUserData({ ...editData });
-    localStorage.setItem("userData", JSON.stringify(editData));
     setIsEditing(false);
+    UpdateData(userID, editData);
   };
 
+  // handle sign out
   const handleSignOut = () => {
-    localStorage.removeItem("userData");
-    localStorage.removeItem("isLoggedIn");
+    signOut();
     navigate("/");
   };
 
+  // handle change password
   const handleChangePassword = () => {
     // Navigate to change password page or show modal
     alert("Change password functionality would be implemented here");
   };
 
+  // handle delete account
   const handleDeleteAccount = () => {
     if (
       window.confirm(
         "Are you sure you want to delete your account? This action cannot be undone."
       )
     ) {
-      localStorage.removeItem("userData");
-      localStorage.removeItem("isLoggedIn");
+      DeleteUser(userID);
       navigate("/");
     }
   };
@@ -77,21 +112,24 @@ const Dashboard = () => {
           <div className={styles.profileAvatarContainer}>
             <div className={styles.profileAvatar}>
               <span className={styles.avatarText}>
-                {userData.fullName
-                  .split(" ")
-                  .map((n) => n[0])
-                  .join("")
-                  .toUpperCase()}
+                {userData?.name
+                  ? userData.name
+                      .split(" ")
+                      .map((elm) => elm[0])
+                      .join("")
+                      .toUpperCase()
+                  : ""}
               </span>
             </div>
-            <button className={styles.changePhotoButton}>
-              <span>📷</span> Change Photo
-            </button>
           </div>
         </div>
         <div className={styles.profileInfo}>
-          <h1 className={styles.profileName}>{userData.fullName}</h1>
-          <p className={styles.profileEmail}>{userData.email}</p>
+          <h1 className={styles.profileName}>
+            {userData.name || "loading..."}
+          </h1>
+          <p className={styles.profileEmail}>
+            {userData.email || "loading..."}
+          </p>
           <div className={styles.profileActions}>
             <button
               className={styles.editProfileButton}
@@ -110,35 +148,26 @@ const Dashboard = () => {
             <h2 className={styles.cardTitle}>About</h2>
           </div>
 
+          {/* user data form */}
           <div className={styles.profileForm}>
             <div className={styles.formGroup}>
               <label className={styles.formLabel}>Full Name</label>
               {isEditing ? (
                 <input
                   type="text"
-                  name="fullName"
-                  value={editData.fullName}
+                  name="name"
+                  value={editData.name}
                   onChange={handleInputChange}
                   className={styles.formInput}
                 />
               ) : (
-                <p className={styles.formValue}>{userData.fullName}</p>
+                <p className={styles.formValue}>{userData.name}</p>
               )}
             </div>
 
             <div className={styles.formGroup}>
               <label className={styles.formLabel}>Email Address</label>
-              {isEditing ? (
-                <input
-                  type="email"
-                  name="email"
-                  value={editData.email}
-                  onChange={handleInputChange}
-                  className={styles.formInput}
-                />
-              ) : (
-                <p className={styles.formValue}>{userData.email}</p>
-              )}
+              <p className={styles.formValue}>{userData.email}</p>
             </div>
 
             <div className={styles.formGroup}>
