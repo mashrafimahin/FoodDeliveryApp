@@ -1,7 +1,14 @@
+// hooks
 import { useState, useEffect } from "react";
+
+// router
+import { useNavigate } from "react-router";
+
+// styles
 import classes from "../Module/Order.module.css";
 
 function Order() {
+  const navigate = useNavigate();
   const [cart, setCart] = useState([]);
   const [paymentMethod, setPaymentMethod] = useState("");
   const [deliveryAddress, setDeliveryAddress] = useState({
@@ -258,6 +265,13 @@ function Order() {
         ) : (
           <div className={classes.emptyOrder}>
             <p>Your cart is empty. Add some items to place an order.</p>
+            <button
+              className={classes.placeOrderButton}
+              style={{ marginTop: "20px" }}
+              onClick={() => navigate("/")}
+            >
+              Go Back
+            </button>
           </div>
         )}
       </div>
