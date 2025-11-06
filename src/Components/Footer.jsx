@@ -33,7 +33,9 @@ function Footer() {
             <NavLink to="/contact" style={basic}>
               <li>Contact</li>
             </NavLink>
-            <li>Careers</li>
+            <NavLink to="/career" style={basic}>
+              <li>Careers</li>
+            </NavLink>
           </ul>
         </div>
 
@@ -41,10 +43,18 @@ function Footer() {
         <div className={classes.footerSection}>
           <h4>Support</h4>
           <ul>
-            <li>Help Center</li>
-            <li>Terms of Service</li>
-            <li>Privacy Policy</li>
-            <li>FAQs</li>
+            <NavLink to="/help" style={basic}>
+              <li>Help Center</li>
+            </NavLink>
+            <NavLink to="/terms&policy" style={basic}>
+              <li>Terms of Service</li>
+            </NavLink>
+            <NavLink to="/privacypolicy" style={basic}>
+              <li>Privacy Policy</li>
+            </NavLink>
+            <NavLink to="/faq" style={basic}>
+              <li>FAQs</li>
+            </NavLink>
           </ul>
         </div>
 

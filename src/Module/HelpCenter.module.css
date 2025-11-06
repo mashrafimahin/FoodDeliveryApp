@@ -1,0 +1,512 @@
+/* Help Center Page Container */
+.helpCenter {
+  width: 100%;
+  min-height: 100dvh;
+  padding-top: 50px;
+  background: linear-gradient(135deg, #fff5f0ea 0%, #ffe8e02c 100%),
+    url(../Assets/image/bg.jpg);
+  background-size: contain;
+  background-position-y: -200px;
+  background-repeat: no-repeat;
+}
+
+/* Hero Section */
+.heroSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 100px;
+  min-height: 70vh;
+  text-align: center;
+}
+
+.heroContent {
+  max-width: 800px;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2d2d2d;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+.heroTitle span {
+  color: #e74124;
+  display: block;
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Search Bar */
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.searchBar {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #e74124;
+  font-size: 1.2rem;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 15px 20px 15px 60px;
+  font-size: 1.1rem;
+  border: 3px solid #e74124;
+  border-radius: 50px;
+  outline: none;
+  background: white;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.searchInput:focus {
+  border-color: #d63516;
+  box-shadow: 0 0 20px rgba(231, 65, 36, 0.2);
+}
+
+/* Categories Section */
+.categoriesSection {
+  padding: 80px 100px;
+  background: white;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 3rem;
+  color: #2d2d2d;
+  margin-bottom: 15px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+}
+
+.sectionSubtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 50px;
+  font-family: "Poppins", sans-serif;
+}
+
+.categoriesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.categoryCard {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.categoryCard:hover {
+  border-color: #e74124;
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(231, 65, 36, 0.15);
+}
+
+.categoryIcon {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #e74124 0%, #ff6b4a 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 45px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.categoryCard:hover .categoryIcon {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #d63516 0%, #ff5722 100%);
+}
+
+.categoryCard h3 {
+  font-size: 1.5rem;
+  color: #2d2d2d;
+  margin-bottom: 12px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+.categoryCard p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 20px;
+}
+
+.topicsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.topicTag {
+  background: #f8f8f8;
+  color: #e74124;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  border: 1px solid #e74124;
+}
+
+/* FAQ Section */
+.faqSection {
+  padding: 80px 100px;
+  background: #f8f8f8;
+}
+
+.faqContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.faqItem {
+  background: white;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.faqItem:hover {
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.12);
+}
+
+.faqQuestion {
+  width: 100%;
+  padding: 25px 30px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2d2d2d;
+  transition: all 0.3s ease;
+}
+
+.faqQuestion:hover {
+  background: #f8f8f8;
+}
+
+.faqQuestion span {
+  flex: 1;
+}
+
+.chevronIcon {
+  color: #e74124;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.faqAnswer {
+  padding: 0 30px 25px 30px;
+  border-top: 1px solid #eee;
+  animation: slideDown 0.3s ease;
+}
+
+.faqAnswer p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.7;
+  font-family: "Roboto", sans-serif;
+  margin: 20px 0 0 0;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 500px;
+    padding-top: 0;
+    padding-bottom: 25px;
+  }
+}
+
+/* Contact Section */
+.contactSection {
+  padding: 80px 100px;
+  background: white;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.contactCard {
+  background: #f9f9f9;
+  padding: 40px 30px;
+  border-radius: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.contactCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.contactIcon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #e74124 0%, #ff6b4a 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 35px;
+  color: white;
+}
+
+.contactCard h3 {
+  font-size: 1.3rem;
+  color: #2d2d2d;
+  margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+.contactDetail {
+  font-size: 1.1rem;
+  color: #e74124;
+  margin-bottom: 8px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+.contactDescription {
+  font-size: 0.95rem;
+  color: #666;
+  font-family: "Roboto", sans-serif;
+}
+
+/* CTA Section */
+.ctaSection {
+  padding: 100px 100px;
+  background: linear-gradient(135deg, #e74124 0%, #ff6b4a 100%);
+  text-align: center;
+}
+
+.ctaContent h2 {
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+}
+
+.ctaContent p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 40px;
+  font-family: "Poppins", sans-serif;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.ctaPrimaryButton,
+.ctaSecondaryButton {
+  padding: 15px 35px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ctaPrimaryButton {
+  background: white;
+  color: #e74124;
+}
+
+.ctaPrimaryButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.ctaSecondaryButton {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.ctaSecondaryButton:hover {
+  background: white;
+  color: #e74124;
+  transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .heroSection,
+  .categoriesSection,
+  .faqSection,
+  .contactSection,
+  .ctaSection {
+    padding: 60px 50px;
+  }
+
+  .heroTitle {
+    font-size: 3rem;
+  }
+
+  .categoriesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  .contactGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .helpCenter {
+    padding-top: 80px;
+  }
+
+  .heroSection {
+    padding: 40px 30px;
+    min-height: auto;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+
+  .searchInput {
+    padding: 12px 18px 12px 50px;
+    font-size: 1rem;
+  }
+
+  .categoriesSection,
+  .faqSection,
+  .contactSection,
+  .ctaSection {
+    padding: 40px 30px;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .categoriesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .faqQuestion {
+    padding: 20px 25px;
+    font-size: 1rem;
+  }
+
+  .faqAnswer {
+    padding: 0 25px 20px 25px;
+  }
+
+  .ctaContent h2 {
+    font-size: 2rem;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+  }
+
+  .ctaPrimaryButton,
+  .ctaSecondaryButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroSubtitle {
+    font-size: 0.95rem;
+  }
+
+  .searchBar {
+    max-width: 100%;
+  }
+
+  .searchInput {
+    padding: 10px 15px 10px 45px;
+    font-size: 0.95rem;
+  }
+
+  .searchIcon {
+    left: 15px;
+    font-size: 1rem;
+  }
+}

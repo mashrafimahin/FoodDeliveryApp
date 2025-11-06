@@ -122,6 +122,13 @@ function Home() {
     navigate("/order");
   };
 
+  const handleOrderClick = (e) => {
+    const target = e.target.parentElement.parentElement;
+    const text = target.querySelector("h3").innerText.toLowerCase();
+    setSelected(text);
+    navigate("/shop");
+  };
+
   return (
     <>
       <div className={classes.homePage}>
@@ -203,8 +210,13 @@ function Home() {
                   {/* description */}
                   <p>{dish.description}</p>
                   <div className={classes.dishFooter}>
-                    <span className={classes.price}>{dish.price}</span>
-                    <button className={classes.addButton}>Add to Cart</button>
+                    <span className={classes.price}>${dish.price}</span>
+                    <button
+                      className={classes.addButton}
+                      onClick={handleOrderClick}
+                    >
+                      Add to Cart
+                    </button>
                   </div>
                 </div>
               </div>

@@ -17,6 +17,11 @@ import Dashboard from "./Pages/Dashboard";
 import Order from "./Pages/Order";
 import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
+import HelpCenter from "./Pages/HelpCenter";
+import Terms from "./Pages/Terms";
+import Privacy from "./Pages/Privacy";
+import FAQ from "./Pages/FAQ";
+import Career from "./Pages/Careers";
 
 // context
 import DataContext from "./Contexts/DataContext";
@@ -81,6 +86,11 @@ function App() {
             <Route path="/order" element={<Order />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/career" element={<Career />} />
+            <Route path="/help" element={<HelpCenter />} />
+            <Route path="/terms&policy" element={<Terms />} />
+            <Route path="/privacypolicy" element={<Privacy />} />
+            <Route path="/faq" element={<FAQ />} />
           </Routes>
         </BrowserRouter>
       </DataContext.Provider>
