@@ -18,6 +18,13 @@ export const Nav = styled.nav`
 
   z-index: 99999;
   transition: 500ms ease-in-out;
+
+  @media screen and (max-width: 1080px) {
+    padding: 30px 50px;
+  }
+  @media screen and (max-width: 960px) {
+    padding: 30px;
+  }
 `;
 
 export const TitleText = styled.h1`

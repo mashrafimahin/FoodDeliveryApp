@@ -3,11 +3,6 @@
   width: 100%;
   min-height: 100dvh;
   padding-top: 50px;
-  background: linear-gradient(135deg, #fff5f0ea 0%, #ffe8e02c 100%),
-    url(../Assets/image/bg.jpg);
-  background-size: contain;
-  background-position-y: -200px;
-  background-repeat: no-repeat;
 }
 
 /* Hero Section */

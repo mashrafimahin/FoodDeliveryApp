@@ -171,7 +171,7 @@ function Home() {
           {/* icon style image */}
           <div className={classes.heroImage}>
             <div className={classes.heroImagePlaceholder}>
-              <img src={HeroImage} />
+              <img src={HeroImage} loading="lazy" alt="Hero food image" />
             </div>
           </div>
         </section>
@@ -190,7 +190,7 @@ function Home() {
               <div className={classes.dishCard} key={index}>
                 {/* head */}
                 <div className={classes.dishImagePlaceholder}>
-                  <img src={dish.image} />
+                  <img src={dish.image} loading="lazy" alt={dish.name} />
                 </div>
 
                 {/* body */}
