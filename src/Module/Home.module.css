@@ -48,7 +48,8 @@
 }
 
 .primaryButton,
-.secondaryButton {
+.secondaryButton,
+.buttons {
   padding: 15px 35px;
   font-size: 1rem;
   font-weight: 600;
@@ -81,6 +82,24 @@
   color: white;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(231, 65, 36, 0.2);
+}
+
+/* Animation styles for buttons */
+.buttons {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Ensure animation styles override default styles when buttons class is applied */
+.buttons.primaryButton {
+  background: #e74124 !important;
+  color: white !important;
+}
+
+.buttons.secondaryButton {
+  background: transparent !important;
+  color: #e74124 !important;
+  border: 2px solid #e74124 !important;
 }
 
 .heroImage {

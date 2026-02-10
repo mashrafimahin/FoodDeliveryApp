@@ -1,8 +1,14 @@
 // hooks
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useRef } from "react";
 
 // styles
 import classes from "../Module/Home.module.css";
+
+// gsap hook
+import useHeroAnim from "../Animations/useHeroAnim";
+import useSectionFeatured from "../Animations/useSectionFeatured";
+import useExplore from "../Animations/useExplore";
+import useXPart from "../Animations/useXPart";
 
 // components
 import Navbar from "../Components/Navbar";
@@ -100,6 +106,12 @@ const trendingData = [
 
 // main
 function Home() {
+  // reference
+  const content = useRef(null);
+  const featured = useRef(null);
+  const explore = useRef(null);
+  const xPart = useRef(null);
+
   // context
   const { setSelected } = useContext(DataContext);
   const { userState } = useContext(AuthContext);
@@ -129,26 +141,54 @@ function Home() {
     navigate("/shop");
   };
 
+  // animation
+  useHeroAnim(
+    {
+      one: ".text",
+      two: ".buttons",
+      three: ".heroImage",
+    },
+    content,
+  );
+
+  useSectionFeatured(
+    {
+      one: ".fText",
+      two: ".fBox",
+    },
+    featured,
+  );
+
+  useExplore(
+    {
+      one: ".eText",
+      two: ".eBox",
+    },
+    explore,
+  );
+
+  useXPart(xPart);
+
   return (
     <>
       <div className={classes.homePage}>
         <Navbar />
         {/* Hero Section */}
-        <section className={classes.heroSection}>
+        <section className={classes.heroSection} ref={content}>
           {/* heading texts */}
           <div className={classes.heroContent}>
-            <h1 className={classes.heroTitle}>
+            <h1 className={`${classes.heroTitle} text`}>
               Delicious Food <span>Delivered</span> to Your Door
             </h1>
 
             {/* sub heading */}
-            <p className={classes.heroSubtitle}>
+            <p className={`${classes.heroSubtitle} text`}>
               Fresh ingredients, authentic flavors, and culinary excellence.
               Experience the best food delivery service in town.
             </p>
 
             {/* buttons */}
-            <div className={classes.heroButtons}>
+            <div className={`${classes.heroButtons} buttons`}>
               <button
                 className={classes.primaryButton}
                 onClick={
@@ -169,23 +209,29 @@ function Home() {
           </div>
 
           {/* icon style image */}
-          <div className={classes.heroImage}>
+          <div className={`heroImage ${classes.heroImage}`}>
             <div className={classes.heroImagePlaceholder}>
-              <img src={HeroImage} loading="lazy" alt="Hero food image" />
+              <img
+                src={HeroImage}
+                loading="lazy"
+                alt="Hero food image"
+                draggable={false}
+                onContextMenu={(e) => e.preventDefault()}
+              />
             </div>
           </div>
         </section>
 
         {/* Featured Dishes Section */}
-        <section className={classes.featuredSection}>
+        <section className={classes.featuredSection} ref={featured}>
           {/* headings */}
-          <h2 className={classes.sectionTitle}>Popular Dishes</h2>
-          <p className={classes.sectionSubtitle}>
+          <h2 className={`fText ${classes.sectionTitle}`}>Popular Dishes</h2>
+          <p className={`fText ${classes.sectionSubtitle}`}>
             Our customers' favorite meals
           </p>
 
           {/* cards */}
-          <div className={classes.dishesGrid}>
+          <div className={`fBox ${classes.dishesGrid}`}>
             {trendingData.map((dish, index) => (
               <div className={classes.dishCard} key={index}>
                 {/* head */}
@@ -202,7 +248,7 @@ function Home() {
                     {Array.from({ length: Math.floor(dish.rating) }).map(
                       (_, i) => (
                         <FontAwesomeIcon icon={faStar} key={i} />
-                      )
+                      ),
                     )}
                     <span>({dish.rating})</span>
                   </div>
@@ -225,18 +271,18 @@ function Home() {
         </section>
 
         {/* Categories Section */}
-        <section className={classes.categoriesSection}>
+        <section className={classes.categoriesSection} ref={explore}>
           {/* heading */}
-          <h2 className={classes.sectionTitle}>Explore Our Menu</h2>
-          <p className={classes.sectionSubtitle}>
+          <h2 className={`eText ${classes.sectionTitle}`}>Explore Our Menu</h2>
+          <p className={`eText ${classes.sectionSubtitle}`}>
             Choose from our wide variety of delicious categories
           </p>
 
           {/* cards */}
-          <div className={classes.categoriesGrid}>
+          <div className={`eBox ${classes.categoriesGrid}`}>
             {categoriesData.map((category, index) => (
               <div
-                className={classes.categoryCard}
+                className={`${classes.categoryCard}`}
                 key={index}
                 onClick={handleClick}
               >
@@ -251,7 +297,7 @@ function Home() {
         </section>
 
         {/* Features Section */}
-        <section className={classes.featuresSection}>
+        <section className={classes.featuresSection} ref={xPart}>
           {featuredData.map((feature, index) => (
             <div className={classes.featureCard} key={index}>
               <div className={classes.featureIcon}>
