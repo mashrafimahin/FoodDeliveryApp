@@ -1,10 +1,6 @@
 // hooks
 import { useState, useEffect, useContext } from "react";
 
-// firebase
-import app from "../Server/Firebase";
-import { getAuth } from "firebase/auth";
-
 // router
 import { useNavigate } from "react-router-dom";
 
@@ -13,46 +9,25 @@ import styles from "../Module/Dashboard.module.css";
 
 // context
 import { AuthContext } from "../Contexts/AuthContext";
-import { FetchData, UpdateData, DeleteUser } from "../Server/DataBase";
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
   const [userData, setUserData] = useState({});
   const [editData, setEditData] = useState({ ...userData });
-  const [userID, setUserID] = useState(null);
 
   // context
   const { signOut } = useContext(AuthContext);
 
-  // Load user data from API
+  // Load user data from localStorage
   useEffect(() => {
-    let isMounted = true;
-    const auth = getAuth(app);
-
-    const unsubscribe = auth.onAuthStateChanged(async (user) => {
-      if (user) {
-        const actID = user.uid;
-        setUserID(actID);
-
-        try {
-          const data = await FetchData(actID);
-          if (isMounted) {
-            setUserData(data);
-            setEditData(data);
-          }
-        } catch (error) {
-          console.error("Error fetching data:", error);
-        }
-      } else {
-        navigate("/");
-      }
-    });
-
-    return () => {
-      isMounted = false;
-      unsubscribe(); // Cleanup listener on unmount
-    };
+    const userData = JSON.parse(localStorage.getItem("user") || "{}");
+    if (userData.email) {
+      setUserData(userData);
+      setEditData(userData);
+    } else {
+      navigate("/");
+    }
   }, [navigate]);
 
   // edit trigger handle
@@ -77,7 +52,7 @@ const Dashboard = () => {
   const handleSave = () => {
     setUserData({ ...editData });
     setIsEditing(false);
-    UpdateData(userID, editData);
+    localStorage.setItem("user", JSON.stringify(editData));
   };
 
   // handle sign out
@@ -96,10 +71,10 @@ const Dashboard = () => {
   const handleDeleteAccount = () => {
     if (
       window.confirm(
-        "Are you sure you want to delete your account? This action cannot be undone."
+        "Are you sure you want to delete your account? This action cannot be undone.",
       )
     ) {
-      DeleteUser(userID);
+      localStorage.removeItem("user");
       navigate("/");
     }
   };

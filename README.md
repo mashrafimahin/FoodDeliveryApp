@@ -2,10 +2,9 @@
 
 [![React](https://img.shields.io/badge/React-19.1.1-blue.svg)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-7.1.12-646CFF.svg)](https://vitejs.dev/)
-[![Firebase](https://img.shields.io/badge/Firebase-12.5.0-orange.svg)](https://firebase.google.com/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-> A modern, full-featured food delivery application built with React and Firebase, offering seamless ordering, user authentication, and an intuitive shopping experience.
+> A modern, full-featured food delivery application built with React and Vite, offering seamless ordering, user authentication, and an intuitive shopping experience.
 
 ![FoodApp Preview](./src/Assets/image/hero.jpg)
 
@@ -13,7 +12,7 @@
 
 ### 🍽️ Core Functionality
 
-- **User Authentication** - Secure login/signup with Firebase
+- **User Authentication** - Secure login/signup with local storage
 - **Interactive Menu** - Browse through various food categories
 - **Shopping Cart** - Add, remove, and manage cart items
 - **Order Management** - Place and track orders
@@ -47,7 +46,7 @@
 
 ### Backend & Services
 
-- **Firebase** - Backend-as-a-Service for authentication and database
+- **Local Storage** - Client-side data persistence
 - **FontAwesome** - Beautiful icons and iconography
 
 ### Development Tools
@@ -61,7 +60,6 @@
 
 - Node.js (v16 or higher)
 - npm or yarn package manager
-- Firebase project (for backend services)
 
 ### Setup Instructions
 
@@ -78,19 +76,13 @@
    npm install
    ```
 
-3. **Configure Firebase**
-
-   - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/)
-   - Enable Authentication and Firestore Database
-   - Add your Firebase config to the appropriate files
-
-4. **Start the development server**
+3. **Start the development server**
 
    ```bash
    npm run dev
    ```
 
-5. **Build for production**
+4. **Build for production**
    ```bash
    npm run build
    npm run preview
@@ -200,7 +192,7 @@ npm run lint
 
 ### Security
 
-- 🔐 **Firebase Auth** - Secure user authentication
+- 🔐 **Local Storage Auth** - Secure user authentication
 - 🛡️ **Data Protection** - Secure data handling and storage
 - 🔒 **Privacy Focused** - GDPR compliant user data management
 
@@ -236,7 +228,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **React Team** - For the amazing React library
 - **Vite Team** - For the fast build tool
-- **Firebase** - For backend services
 - **FontAwesome** - For beautiful icons
 - **Unsplash** - For food photography
 
