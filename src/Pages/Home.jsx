@@ -41,6 +41,7 @@ import HeroImage from "../Assets/image/hero.jpg";
 import pizza from "../Assets/image/pizza.jpg";
 import burger from "../Assets/image/burg.jpg";
 import cake from "../Assets/image/cake.jpg";
+import useCTA from "../Animations/useCTA";
 
 // data
 const featuredData = [
@@ -111,6 +112,7 @@ function Home() {
   const featured = useRef(null);
   const explore = useRef(null);
   const xPart = useRef(null);
+  const CTA = useRef(null);
 
   // context
   const { setSelected } = useContext(DataContext);
@@ -150,7 +152,6 @@ function Home() {
     },
     content,
   );
-
   useSectionFeatured(
     {
       one: ".fText",
@@ -158,7 +159,6 @@ function Home() {
     },
     featured,
   );
-
   useExplore(
     {
       one: ".eText",
@@ -166,8 +166,14 @@ function Home() {
     },
     explore,
   );
-
   useXPart(xPart);
+  useCTA(
+    {
+      one: ".cText",
+      two: ".cBtns",
+    },
+    CTA,
+  );
 
   return (
     <>
@@ -310,13 +316,15 @@ function Home() {
         </section>
 
         {/* Call to Action Section */}
-        <section className={classes.ctaSection}>
+        <section className={classes.ctaSection} ref={CTA}>
           <div className={classes.ctaContent}>
-            <h2>Ready to Order?</h2>
-            <p>Download our app and get exclusive deals and faster checkout</p>
+            <h2 className="cText">Ready to Order?</h2>
+            <p className="cText">
+              Download our app and get exclusive deals and faster checkout
+            </p>
 
             {/* action buttons */}
-            <div className={classes.ctaButtons}>
+            <div className={`cBtns ${classes.ctaButtons}`}>
               <button className={classes.ctaPrimaryButton}>Download App</button>
               <button className={classes.ctaSecondaryButton}>
                 Order Online
