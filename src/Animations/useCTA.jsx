@@ -11,7 +11,6 @@ function useCTA(targets, scope) {
         scrollTrigger: {
           trigger: scope.current,
           start: "top 70%",
-          markers: true,
         },
       });
 

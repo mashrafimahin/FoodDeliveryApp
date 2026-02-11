@@ -7,7 +7,8 @@ const basic = {
 };
 
 // hooks
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
+import useNavAnim from "../Animations/useNavAnim";
 
 // router
 import { NavLink } from "react-router";
@@ -25,6 +26,7 @@ function Navbar() {
   const { scroll } = useContext(ScrolledContext);
   const { userState } = useContext(AuthContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const content = useRef(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -34,16 +36,19 @@ function Navbar() {
     setIsMenuOpen(false);
   };
 
+  useNavAnim(content);
+
   return (
     <>
-      <Nav $sc={scroll}>
+      <Nav $sc={scroll} ref={content}>
         {/* Logo */}
         <TitleText
+          className="logo"
           style={{ fontWeight: "bold", cursor: "pointer" }}
           $color="#e74124"
           $size="2.5rem"
         >
-          Foodie
+          FoodZe
         </TitleText>
 
         {/* Navigation Links */}
@@ -51,33 +56,33 @@ function Navbar() {
           {/* list */}
           <ul className={classes.navbarLinks}>
             <NavLink to="/" style={basic}>
-              <li>Home</li>
+              <li className="links">Home</li>
             </NavLink>
             <NavLink to="/shop" style={basic}>
-              <li>Shop</li>
+              <li className="links">Shop</li>
             </NavLink>
             <NavLink to="/about" style={basic}>
-              <li>About</li>
+              <li className="links">About</li>
             </NavLink>
             <NavLink to="/blogs" style={basic}>
-              <li>Blog</li>
+              <li className="links">Blog</li>
             </NavLink>
             <NavLink to="/contact" style={basic}>
-              <li>Contact</li>
+              <li className="links">Contact</li>
             </NavLink>
           </ul>
 
           {/* button */}
           {userState ? (
             <NavLink to="/dashboard" style={basic}>
-              <button className={classes.profileButton}>
+              <button className={`ctaS ${classes.profileButton}`}>
                 <FontAwesomeIcon icon={faUser} />
                 Profile
               </button>
             </NavLink>
           ) : (
             <NavLink to="/login" style={basic}>
-              <button className={classes.loginSignupButton}>
+              <button className={`ctaS ${classes.loginSignupButton}`}>
                 <FontAwesomeIcon icon={faUser} />
                 Login
               </button>
@@ -86,7 +91,7 @@ function Navbar() {
 
           {/* Hamburger Menu */}
           <div
-            className={`${classes.hamburger} ${isMenuOpen ? classes.open : ""}`}
+            className={`ctaS ${classes.hamburger} ${isMenuOpen ? classes.open : ""}`}
             onClick={toggleMenu}
           >
             <span></span>
